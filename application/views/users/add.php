@@ -45,6 +45,12 @@
                   <div class="form-group">
                     <span class="error" style="color:red;font-size:20px;font-weight:bold"></span>
                   </div>
+                  <div class="col-md-2 col-sm-2">
+                  <input type="file" onchange="readURL(this);" name="image" required class="form-control form-control-user">
+                  <div>
+                  <div class="col-md-2 col-sm-2">
+                  <img id="blah" src="http://placehold.it/180" width="50px" height="50px" style="border-radius:100px" alt="your image" />
+                  <div>
             <div>
           </table>
           <div class="form-group row">
@@ -103,3 +109,17 @@
 			});
 		});
 	</script>
+  <script>
+     function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
